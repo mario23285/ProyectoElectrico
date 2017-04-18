@@ -1,0 +1,171 @@
+% ----------------------
+  \chapter{Teoría del trabajo escrito} 
+% ----------------------
+\label{C:antecedentes}
+
+Uno o más capítulos del trabajo escrito deben dedicarse a la teoría y desarrollos que sustentan el proyecto. Una de las preguntas más usuales es ``¿qué hay que incluir en la teoría?'' Esta es una decisión en primera instancia del estudiante junto con el profesor guía. A continuación hay otros criterios para tomar estas decisiones.
+
+\section{¿A quién va dirigido el trabajo escrito?}
+
+Una guía útil para tomar decisiones sobre qué incluir en el trabajo escrito es tener conciencia de cuál es el público meta de la lectura. Esto marca grandes diferencias, pues, por ejemplo, para un sector externo de la carrera habría que iniciar explicando conceptos básicos; mientras que, si está dirigido a profesores, se omite casi todo tema introductorio y se enfoca en los aspectos novedosos del trabajo. Sin embargo, este último enfoque puede dejar a muchos lectores con vacíos importantes de teoría.
+
+Tomando en consideración lo anterior, la recomendación de la Escuela es la siguiente:
+
+\begin{quote}
+\bfseries\centering
+Los lectores del trabajo escrito del Proyecto Eléctrico son \\ estudiantes de ingeniería eléctrica del último año de carrera.
+\end{quote}
+
+Esta recomendación permite tomar algunas decisiones importantes, por ejemplo:
+
+\begin{description}
+\item[¿Se debe explicar el concepto de resistencia eléctrica?] No, porque se asume a todo lector familiar con el tema\footnote{A pesar de eso, la explicación de la resistencia eléctrica se ha incluido muchas veces en trabajos escritos.}. Sería justificable cuando el proyecto estudia y modifica algún concepto fundamental relacionado con la resistencia o la capacitancia (por ejemplo, en teoría de sistemas micro electromecánicos, MEMS).
+\item[¿Se debe profundizar en la historia de temas como computadoras o la teoría de control?] No, si se considera que hay cursos de la carrera dedicados a estos temas, y que su explicación probablemente no hace una diferencia en el trabajo del proyecto\footnote{Por cortesía con el lector, algunos desarrollos históricos se pueden esbozar, sobre todo si dan contexto a novedades más recientes.}.
+\end{description}
+
+\section{Convenciones básicas de formato}
+
+Por tratarse de una presentación con base en la recopilación, el análisis y la síntesis de trabajos de otros autores, la referencia adecuada a los mismos es indispensable.  Toda copia (\emph{¡plagio!}), es inaceptable.
+
+El contenido del capítulo debe ser relevante para el proyecto y no ``material de relleno'', o incluido con el único propósito de ``engordar'' el informe.
+
+El estado de la técnica establece el \emph{punto de partida} del estudio realizado y posiblemente también, la \emph{base de comparación} para las pruebas realizadas.
+
+Este capítulo es importante porque muestra la capacidad de análisis y síntesis del estudiante.
+ 
+\section{Ecuaciones}
+
+Las ecuaciones estarán centradas y numeradas en forma secuencial por capítulo, al margen derecho. La referencia a ellas se hará utilizando su número.
+
+\paragraph{Ejemplo} ``El modelo utilizado para representar al proceso, es de primer orden más tiempo muerto, dado por la función de transferencia de la ecuación (\ref{E:FT})
+
+\begin{equation}
+	P(s) = \frac{K \me^{-Ls}}{Ts+1}, \label{E:FT}
+\end{equation}
+
+\noindent donde $K$ es la ganancia, $T$ la ...''  
+
+Las ecuaciones forman parte del texto, por lo que deben terminarse con el signo de puntuación requerido, una coma o un punto.
+
+\paragraph{Ejemplos de ecuaciones}
+
+\begin{equation}
+	\tau \frac{\md T_{tc}(t)}{\md t} + T_{tc}(t) = T_{gas}(t)
+\end{equation}
+
+\begin{align}
+	L_1 \frac{\md i_{L_1} (t)}{\md t} &= v(t) - R_1 i_{L_1}(t) - v_c(t), \\
+	C \frac{\md v_c (t)}{\md t} &= i_L(t)- \frac{1}{R_2} v_c(t).
+\end{align}
+
+\begin{equation}
+x_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\end{equation}
+
+\begin{equation}
+Z = \begin{cases}
+\sqrt{\epsilon_r - \cos^2 \theta}/\epsilon_r & \text{para polarización vertical} \\
+\sqrt{\epsilon_r - \cos^2 \theta} & \text{para polarización horizontal} \\
+\end{cases}
+\end{equation}
+
+
+\section{Figuras y tablas}
+
+Las figuras y las tablas son \emph{elementos flotantes}. Para figuras grandes se prefiera ubicarlos al inicio de la página.
+
+\subsection{Figuras}
+Las referencias a las figuras debe hacerse utilizando el número asignado a ellas.  Para esto se le asigna una etiqueta (con \texttt{label}) y luego se utiliza esta para hacer la referencia (con \texttt{ref}).  Usar en el texto el término ``figura'' y no Fig.'' o ``fig.''.
+
+La leyenda (con \texttt{caption}) de la figura, irá en la parte inferior de la misma.  Como en forma predeterminada en la clase \texttt{eieproyecto} las figuras están centradas, no es necesario usar \texttt{centering} para hacerlo.
+
+Por ejemplo ``Considérese el diagrama de bloques mostrado en la figura en donde el proceso controlado está dado por ...''.
+
+No utilizar ``... en la siguiente figura ...'', emplear siempre el número correspondiente para referirse a ellas.
+
+Cuando las figuras son muy pequeñas, se puede colocar la leyenda al lado de la misma, con el ambiente \texttt{SCfigure} del paquete \texttt{sidecap}.  Un ejemplo de esto se muestra en la figura.
+
+Cuando un gráfico muestre varias curvas, estas deben poderse distinguir, no solamente en la pantalla de la computadora, usando diferentes colores, si no también en una impresión en blanco y negro, utilizando lineas de trazos diferentes, como se muestra en la figura.
+
+\LaTeX~ nunca coloca las figuras y los cuadros en una página anterior a la en que son incluidas.  Los elementos flotantes los coloca en la página donde se hace referencia a ellos, o en una de las siguientes.
+
+Además, en el texto debe hacerse referencia a todas las figuras y cuadros incluidos en el informe.  Si alguno de ellos no se menciona en el texto, es que no se requiere para entender el desarrollo presentado y por lo tanto es innecesario y se podría omitir sin que se afecte el informe.
+
+\subsection{Tablas}
+Las tablas son el otro elemento flotante utilizado en los informes y también es conveniente dejar que \LaTeX~ los coloque en donde considere que es más adecuado.
+
+Las tablas (o cuadros) no llevarán ninguna línea divisoria vertical, solo horizontales. Una en la parte superior (\texttt{toprule}), una bajo la línea de cabecera (\texttt{midrule}) y una en la parte inferior (\texttt{bottomrule}).  Normalmente basta con estas tres líneas, pero si fuera necesaria alguna otra para una división horizontal, esta debe ser del tipo \texttt{midrule}.
+
+Se recomienda revisar los comandos para la construcción de cuadros, incluidos en el manual de la clase \texttt{memoir} \cite{memoir2011}, o en la del paquete \texttt{booktabs} \cite{fear2005}.
+
+La leyenda (\texttt{caption}) del cuadro se mostrará en la parte superior.  Para poder referirse al cuadro (con \texttt{ref}), se le asigna una etiqueta (con \texttt{label}).
+
+En forma predefinida, los cuadros se mostrarán centrados horizontalmente, por lo que no es necesario hacer esa indicación. 
+
+El cuadro \ref{tab:01} es un ejemplo de un cuadro de datos simple.
+
+%inclusión de un cuadro con datos
+\begin{table}
+\caption{Parámetros de los modelos.} \label{tab:01o}
+		\begin{tabular}{@{}*{4}{c}@{}}
+    \toprule
+    $K_p$ & $T_1$ & $T_2$ & $L$ \\
+    \midrule
+     1,01 & 1,50 & 0,75 & 0,12 \\
+		 1,15 & 2,37 & 0,15 & 0,28 \\
+		 2,25 & 5,89 & 2,15 & 1,60 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+Si la primera columna corresponde a leyendas o parámetros que identifican los datos de la línea, esta debe estar justificada a la izquierda, como se muestra en el cuadro \ref{tab:AH}, que ha sido tomada de \cite{astromhagglund2006}.
+
+\begin{table}
+\caption{Parámetros de los controladores ...} \label{tab:AH}
+\begin{center}
+    \begin{tabular}{@{}l*{7}{c}@{}}
+    \toprule
+    Controller & $K$ & $K_i$ & $K_d$ & $\beta$ & $T_i$ & $T_d$ & IAE \\
+    \midrule
+    PD &  1,333 & 0 & 1,333 & 1 & 0 &1 & $\infty$ \\
+		PI & 0,433 & 0,192 & 0 & 0,14 & 2,25 & 0 & 6,20 \\
+		PID MIGO & 1,305 & 0,758 & 1,705 & 0 & 1,72 & 1,31 & 2,25 \\
+		PID $T_i=4 \ T_d$ & 1,132 & 0,356 & 0,900 & 0,9 & 3,18 & 0,80 & 2,51 \\
+    \bottomrule
+    \end{tabular}
+\end{center}
+\end{table}
+
+Se puede especificar una cabecera para más de una columna y utilizar lineas horizontales que abarquen solo unas pocas columnas, como se muestra en el cuadro \ref{tab:muestra}.
+
+\begin{table}
+\caption{Ejemplo de otro cuadro.} \label{tab:muestra}
+	\begin{tabular}{@{}l*{4}{c}@{}}
+	\toprule
+	& \multicolumn{2}{c}{Prueba 1} & \multicolumn{2}{c}{Prueba 2} \\
+	\cmidrule(l{2pt}r{2pt}){2-3}\cmidrule(l{2pt}r{2pt}){4-5} 
+	& $\Delta E=5$ V & $\Delta E = -5$ V & $\Delta E = 10$ V & $\Delta E = -10$ V \\
+	\midrule
+	Ganancia             &  1,06 & 0,98 & 1,12 & 0,97 \\
+	Tiempo subida, s  &  5,67 & 5,89 & 6,02 & 5,74 \\
+	Sobrepaso máx, \%        &  2,67 & 3,25 & 2,91 & 1,56 \\
+	Error, \% &  0,25 & 0,56 & 0,97 & 0,18 \\
+	\bottomrule
+	\end{tabular}
+\end{table}
+
+\newpage
+Cuando los cuadros son pequeños (abarcan menos de la mitad del ancho del texto), se puede colocar la leyenda a la par del cuadro, utilizando el ambiente \texttt{SCtable} del paquete \texttt{sidecap}, tal como se muestra en el cuadro \ref{tab:01}.  Compare este, con el cuadro \ref{tab:01o}.
+
+\begin{SCtable}
+\caption[Parámetros de los modelos]{Parámetros de los modelos, obtenidos a partir de las tres curvas de reacción.} \label{tab:01}
+    \begin{tabular}{@{}*{4}{c}@{}}
+    \toprule
+    $K_p$ & $T_1$ & $T_2$ & $L$ \\
+    \midrule
+     1,01 & 1,50 & 0,75 & 0,12 \\
+		 1,15 & 2,37 & 0,15 & 0,28 \\
+		 2,25 & 5,89 & 2,15 & 1,60 \\
+    \bottomrule
+    \end{tabular}
+\end{SCtable}

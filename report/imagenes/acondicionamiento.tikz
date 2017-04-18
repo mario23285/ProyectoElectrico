@@ -1,0 +1,42 @@
+\begin{circuitikz}
+\draw 
+(0,0)	to [battery, l_=$V_i$] (0,3)
+		to [R, l_=$R_1$] (2.5,3)
+        to [cV, l_=$A v_x$] (5,3)
+        to [short] (6,3)
+        to [vR, l_=$R_T$, i=$i_{R_T}$] (6,0) node[ground]{}
+        to [short] (0,0)
+(6,3)	to [short] (7,3)
+(6,0)	to [short] (7,0)
+
+;
+\draw (2.5,3) to [open, v=$v_x$] (2.5,0);
+\draw (2.5,3) node[circ]{};
+\draw (2.5,0) node[circ]{};
+
+\draw[dashed] (-0.8,-0.8) rectangle (4.8,3.8);
+\draw (-0.8,-0.8) node [above right]{Fuente de corriente};
+
+\draw (7,-0.5) rectangle (9,3.5);
+\draw (8,1.5) node [align=center]{Circuito \\ de acople};
+
+\draw 
+(9,3)	to [short] (10,3)
+		to [R, l_=$R_2$] (12,3)
+		to [generic, l_=$Y$, v^=$v_Y$] (14,3)
+(9,0)   to [short] (14,0) node[ground]{}
+		to [cV, l=$A v_z$] (14,3)
+(14,0)	to [short] (15.3,0)
+		to [open, v>=$v_o$] (15.3,3)
+		to [short] (14,3)
+;
+\draw (12,3)	to [open, v=$v_z$] (12,0);
+\draw (12,3) node[circ]{};
+\draw (12,0) node[circ]{};
+
+\draw[dashed] (9.8,-0.8) rectangle (14.8,3.8);
+\draw (9.8,-0.8) node [above right]{Amplificador};
+
+\draw (15.3,3) node[circ]{} node[right]{$a$};
+\draw (15.3,0) node[circ]{} node[right]{$b$};
+\end{circuitikz}

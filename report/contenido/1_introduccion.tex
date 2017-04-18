@@ -1,0 +1,74 @@
+% ----------------------
+  \chapter{Introducción}
+% ----------------------
+\label{C:introduccion}
+
+Actualmente, en el laboratorio de investigación en  reconocimiento de patrones y sistemas inteligentes (\textit{PRIS-Lab}), se utilizan cámaras infrarrojas de captura de movimiento para el estudio del movimiento humano. Dichas cámaras son capaces de generar un modelo 3D básico del esqueleto humano, que se reprensenta en archivos del tipo  \textit{\textbf{B}io\textbf{v}ision \textbf{H}ierarchical Data} o \textbf{BVH}.  Los archivos BVH contienen los datos necesarios para generar un modelo 3D que captura fielmente todos los movimientos hechos por un actor enfrente de las cámaras y se usan frecuentemente en Animación Digital y otras áreas afines.
+
+El problema con estás cámaras es que, por lo general, las grabaciones presentan una cantidad considerable de errores de captura o \textit{glitches}, en los cuales la posición de los sensores infrarrojos no es capturada de manera correcta y eso deriva en modelos en los que las articulaciones se deforman o hacen movimientos antinaturales.  El presente proyecto, trata sobre el diseño e implementación de un algoritmo capaz de eliminar esos errores de captura de movimiento de un archivo BVH, y así generar una animación 3D más correcta y fluida.  
+
+En general, este proyecto se mantiene dentro del área de la computación y otras ramas de investigación afines al \textit{PRIS-Lab}; mediante el uso de técnicas de desarrollo de \textit{software} y algoritmos del área de \textit{Computer Graphics}, se pretende crear un programa en C/C+ + capaz de resolver el problema propuesto. 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Alcances del proyecto}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Los archivos de tipo \textbf{BVH}, por lo general presentan varios tipos de errores de captura de movimiento.  Como parte de los objetivos de este proyecto, se pretende definir una taxonomía de errores adecuada, con el fin de delimitar puntualmente qué tipo de eventos se consideran errores y cuáles de éstos se van a corregir. De forma general, el presente proyecto se limita a la corrección de errores espaciales y temporales conocidos como \textit{glitches}.
+
+Cabe mencionar, que no será parte de este trabajo diseñar o implementar una metodología o algoritmo para la detección de errores en un archivo \textbf{BVH}.  El cómo detectar los errores y delimitarlos temporalmente, quedará para otro proyecto dada su complejidad.  Tampoco se pretende crear un programa que sustituya en su totalidad las capacidades de un animador profesional.
+
+\subsection{Herramientas a utilizar}
+
+La manipulación de datos puros para generar un modelo en 3D, requiere de un conjunto de bibliotecas estandarizadas de \textbf{OpenGL} para funcionar de manera eficiente.  La disponibilidad de dichos recursos, depende del lenguaje de programación que se escoja para la implementación del programa, sin embargo, debido a las herramientas que actualmente se desarrollan en el \textit{PRIS-Lab}, se escogió desarrollar el programa en C/C++.
+
+A parte de las necesidades del laboratorio, se escogió C/C++ debido a que presenta varias bibliotecas muy versátiles en \textbf{OpenGL} y otras herramientas gráficas comunes, sin mencionar el hecho de que muchas de las bibliotecas que existen en C/C++ son de Código Abierto.
+
+Partiendo de esta selección, inicialmente se escogieron como punto de partida las bibliotecas GLEW (\textbf{OpenGL}), GLM y Einspline para trabajar en la solución propuesta.  Las dos primeras bibliotecas, son herramientas comunes en el área de \textit{Computer Graphics}, mientras que Einspline, se centra en resolver todo tipo de problemas de interpolación en 1D, 2D y 3D, usando \textit{B-Splines}.
+
+Dentro de los aspectos a omitir en este proyecto, se encuentran el diseño de una interfaz gráfica para el programa, ya que se supone que éste correrá en el \textit{cluster} del \textit{PRIS-Lab}.  Tampoco se implementarán varios tipos de interpolación para la manipulación de curvas de animación.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Justificación}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+La tecnología de captura de movimiento o \textit{Motion Capture}(\textit{MoCap}), es muy utilizada en áreas como la Animación Digital para diferentes tipos de producciones audiovisuales, que van desde los videojuegos, comerciales de televisión, hasta el cine.  Normalmente, muchos animadores se basan en modelos 3D obtenidos con esta tecnología para producir todo tipo de animaciones.
+
+El problema que este proyecto pretende resolver, es importante porque en el área de Animación Digital, corregir los archivos de \textit{MoCap} representa una inversión significativa en cualquier producción.  Poner a un animador profesional a corregir manualmente, cuadro por cuadro, un archivo \textbf{BVH} puede costar \$10 por segundo, por personaje animado.  
+
+Esto quiere decir, que una producción pequeña como un comercial o un corto animado, puede llegar a costar miles de dólares, solo por el hecho de solicitar a un animador depurar un archivo de \textit{MoCap}. Eso sin mencionar, que es un proceso muy tedioso.
+
+Revisando las herramientas comerciales disponibles y la literatura existente, no se pudo encontrar una herramienta de \textit{software} que eliminara errores de captura de un archivo de \textit{Motion Capture}.  Obviamente, no se han podido hacer programas que sustituyan a los animadores.  Lo que sí se puede hacer, es un programa que elimine los errores más comunes de una captura de movimiento y produzca un archivo \textbf{BVH} de mejor calidad.
+
+En este sentido, el aporte principal del presente proyecto, se basa en crear dicho programa, y con eso, tratar de aligerar la carga que supone para un grupo de producción o investigación, lidiar con errores de captura de movimiento.
+
+
+
+\section{Objetivos}
+
+\subsection{Objetivos generales}
+
+% Objetivos generales----------<<<
+\begin{itemize}
+\item Realizar una investigación bibliográfica referente a los algoritmos más comunes para la interpolación de curvas de animación.
+\item Seleccionar los algoritmos a implementar para la interpolación de curvas de animación.
+\item Implementar de dichos algoritmos en C/C++.
+\item Validar la implementación en pruebas de ejecución.
+\item Escribir un artículo para la rama estudiantil de la IEEE  (CONESCAPAN).
+\end{itemize}
+% --------------------<<<
+
+\subsection{Objetivos específicos}
+
+%Objetivos específicos---------<<<
+\begin{itemize}
+\item Definir una taxonomía de \textit{glitches} para delimitar qué tipo de errores el programa será capaz de corregir.
+\item Documentar toda la información necesaria para la implementación del programa en C/C++.
+
+\end{itemize}
+%---------------------<<<
+
+\section{Metodología}
+
+El diseño del programa, se trabajará con metodologías de desarrollo ágiles (\textit{Agile}), en las cuales, se definirán un conjunto de tareas, con sus respectivos avances por semana. Los avances se darán a conocer semanalmente en las reuniones de PRIS-ProSeminar, donde se dará retroalimentación de cada tarea desarrollada, así como la revisión de objetivos y del trabajo escrito.

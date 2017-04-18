@@ -1,0 +1,11 @@
+\begin{circuitikz}
+\draw
+	(0,0)
+    	to [V, l=50~\si{\volt}] (0,2) to (0,3)
+        to [R, l=$20~\si{\kilo\ohm}$] (5,3) to (5,2)
+        to [vR, l=$R$] (5,0)
+        to (0,0)
+  	(0,2)
+    	to [R, l_=$5~\si{\kilo\ohm}$] (5,2)     
+;
+\end{circuitikz}
