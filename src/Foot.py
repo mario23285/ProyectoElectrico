@@ -99,4 +99,3 @@ class Foot(Bone):
         if Yeuler > self.Ymax:
             MOTION[self.Yp] = self.Ymax
             self.Report_glitch('Error de torsión, el tobillo no se mueve en esta dirección', frame)
-#------------------------------------------------------

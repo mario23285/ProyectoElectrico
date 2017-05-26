@@ -22,10 +22,31 @@ https://github.com/mario23285/ProyectoElectrico.git
 
 """
 #Lista de clases y módulos a importar
+
+#módulos de sistema
+import sys
+
+#módulos de la jerarquía de huesos
 from Foot import Foot
 
-#Creación de la jerarquía de Bones del MoCap
+print('Inicializando BVH TuneUp...\nCreando jerarquía de Bones...')
+#-------------------Creación de la jerarquía de Bones del MoCap------------
 Leftfoot = Foot(138, 139, 140)
 
 #-------------------FIN de la jerarquía---------------
-print('FIN')
+#Creando el archivo de salida: BVH corregido
+
+
+#Parsear archivo línea por línea
+BVHfile = open(sys.argv[1], 'r')
+outputBVH = open(sys.argv[2], 'w')
+
+for line in BVHfile.readlines():
+    if line[0].isdigit():
+        print(line)
+    else:
+        outputBVH.write(line)
+
+#---final del script se libera la memoria---
+BVHfile.close()
+outputBVH.close()
