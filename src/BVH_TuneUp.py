@@ -22,7 +22,7 @@ https://github.com/mario23285/ProyectoElectrico.git
 
 """
 #Lista de clases y módulos a importar
-from hierarchy import Foot
+from Foot import Foot
 
 #Creación de la jerarquía de Bones del MoCap
 Leftfoot = Foot(138, 139, 140)

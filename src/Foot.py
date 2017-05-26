@@ -8,12 +8,14 @@ A41267
 Programa: BVH_TuneUp
 -------------------------------------------------------------------------------
 
-archivo: hierarchy.py
+archivo: Foot.py
 descripción:
-Este archivo contiene las clases que heredan de Bone y describen en concreto
-cada elemento de la jerarquía.  Cada clase implementa su propia variación del
-método Gomiometry_check para llevar a cabo un análisis diferente por cada
-hueso (JOINT) de la jerarquía.
+Este archivo contiene las clase Foot, la cual se utiliza para implementar el
+tobillo derecho y el izquierdo. Los estudios de goniometría para este hueso
+se basan en los siguientes límites de los ángulos de Euler:
+Z rotación sobre el eje del tobillo (el tobillo casi no se mueve en esta dirección)
+X Flexión Plantar (hacia abajo) y dorsiflexión
+Y Torsión hacia afuera y hacia adentro (hay poca movilidad en esta componente también)
 """
 from Bone import Bone
 
