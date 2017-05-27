@@ -8,28 +8,22 @@ A41267
 Programa: BVH_TuneUp
 -------------------------------------------------------------------------------
 
-archivo: Foot.py
+archivo: Leg.py
 descripción:
-Este archivo contiene las clase Foot, la cual se utiliza para implementar el
-tobillo derecho y el izquierdo. Los estudios de goniometría para este hueso
+Este archivo contiene las clase Leg, la cual se utiliza para implementar la
+rodilla izquierda y la derecha. Los estudios de goniometría para este hueso
 se basan en los siguientes límites de los ángulos de Euler:
-Z rotación sobre el eje del tobillo (el tobillo casi no se mueve en esta dirección)
-X Flexión Plantar (hacia abajo) y dorsiflexión
-Y Torsión hacia afuera y hacia adentro (hay poca movilidad en esta componente también)
+Z torsión no válida
+X Flexión y extensión
+Y rotación no válida
 """
 from Bone import Bone
 
-class Foot(Bone):
-
+class Leg(Bone):
     """
-    Esta subclase implementa el estudio de goniometría para los tobillos en
-    el esqueleto del BVH. La jerarquía los llama "Foot". Se manejan los
-    siguientes ángulos:
-    Z rotación
-    X flexión plantar/Dorsiflexión
-    Y torsión
+    Esta subclase implementa el estudio de goniometría para las rodillas en
+    el esqueleto del BVH. La jerarquía los llama "Leg".
     """
-
     def __init__(self, ID=' ', Zp=0, Xp=0, Yp=0):
         """
         Se inicializa este hueso con los siguientes parámetros
@@ -49,13 +43,13 @@ class Foot(Bone):
         #se llama al constructor de la super clase para acceder a todos los atributos
         #de goniometría
         Bone.__init__(self,
-                      Name='Tobillo',
-                      Zmin=-5.000000,
-                      Zmax=5.000000,
-                      Xmin=-30.000000,
-                      Xmax=50.000000,
-                      Ymin=0.000000,
-                      Ymax=15.000000)
+                      Name='Rodilla',
+                      Zmin=-0.200000,
+                      Zmax=0.200000,
+                      Xmin=0.000000,
+                      Xmax=150.000000,
+                      Ymin=-1.000000,
+                      Ymax=1.000000)
 
     def Goniometry_check(self, MOTION, frame):
         """
@@ -79,24 +73,22 @@ class Foot(Bone):
         glitch = False
         ErrorMsg = ' existen glitches de '
 
-
         #probamos límites en Z
         if Zeuler < self.Zmin:
             MOTION[self.Zp] = self.Zmin
             glitch = True
-            ErrorMsg += 'rotacion interna | '
+            ErrorMsg += 'torsión | '
 
         if Zeuler > self.Zmax:
             MOTION[self.Zp] = self.Zmax
             glitch = True
-            ErrorMsg += 'rotacion externa | '
+            ErrorMsg += 'torsión | '
 
         #aquí probamos límites en X
         if Xeluer < self.Xmin:
             MOTION[self.Xp] = self.Xmin
             glitch = True
-            ErrorMsg += 'dorsiflexion | '
-
+            ErrorMsg += 'extension | '
         if Xeluer > self.Xmax:
             MOTION[self.Xp] = self.Xmax
             glitch = True
@@ -106,12 +98,11 @@ class Foot(Bone):
         if Yeuler < self.Ymin:
             MOTION[self.Yp] = self.Ymin
             glitch = True
-            ErrorMsg += 'torsion interna | '
-
+            ErrorMsg += 'rotacion interna | '
         if Yeuler > self.Ymax:
             MOTION[self.Yp] = self.Ymax
             glitch = True
-            ErrorMsg += 'torsion externa | '
+            ErrorMsg += 'rotacion externa | '
 
         if glitch:
             self.Report_glitch(ErrorMsg, frame)

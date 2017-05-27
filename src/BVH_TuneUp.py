@@ -28,6 +28,7 @@ import sys
 
 #módulos de la jerarquía de huesos
 from Foot import Foot
+from Leg import Leg
 
 
 
@@ -38,6 +39,8 @@ from Foot import Foot
 Leftfoot = Foot('Izquierdo', 138, 139, 140)
 Rightfoot = Foot('Derecho', 150, 151, 152)
 
+LeftLeg = Leg('Izquierda', 135, 136, 137)
+RightLeg = Leg('Derecha', 147, 148, 149)
 
 #-------------------FIN DE ESTRUCTURAS DE DATOS Y OBJETOS------------------
 
@@ -60,10 +63,13 @@ for line in BVHfile.readlines():
         #esto lo hacemos para eliminar el ultimo elemento de line '\n' y convertir a float todo
         line.pop()
         MOTION = [float(nums) for nums in line]
+        print('Procesando movimientos del frame: ' + str(frame))
 
         #Aquí se aplican los estudios de goniometría a cada Bone
         Leftfoot.Goniometry_check(MOTION, frame)
         Rightfoot.Goniometry_check(MOTION, frame)
+        LeftLeg.Goniometry_check(MOTION, frame)
+        RightLeg.Goniometry_check(MOTION, frame)
 
         #aqui se debe escribir el arreglo de MOTION al outputBVH
         outputMotion = [str(nums) for nums in MOTION]
