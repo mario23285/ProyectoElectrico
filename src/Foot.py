@@ -30,9 +30,10 @@ class Foot(Bone):
     Y torsión
     """
 
-    def __init__(self, Zp=0, Xp=0, Yp=0):
+    def __init__(self, ID=' ', Zp=0, Xp=0, Yp=0):
         """
-        Se inicializa este hueso con los siguientes parámentros
+        Se inicializa este hueso con los siguientes parámetros
+        ID: identificador del bone. Ej: izquierdo/derecho
 
         Cada posición del hueso se define con un vector de ángulos de Euler
         (Z, X, Y) los cuales tienen una posición específica dentro del array
@@ -41,6 +42,7 @@ class Foot(Bone):
         Xp: índice del array MOTION que contiene el angulo de euler X para ese hueso
         Yp: índice del array MOTION que contiene el angulo de euler Y para ese hueso
         """
+        self.ID = ID
         self.Zp = Zp
         self.Xp = Xp
         self.Yp = Yp
@@ -78,24 +80,30 @@ class Foot(Bone):
         #probamos límites en Z
         if Zeuler < self.Zmin:
             MOTION[self.Zp] = self.Zmin
-            self.Report_glitch('Error de rotación, el tobillo no se mueve en esta dirección', frame)
+            self.Report_glitch('Error de rotacion, el tobillo no rota: '
+                               + str(Zeuler) + ' grados. Cambiando Z a '+ str(self.Zmin), frame)
 
         if Zeuler > self.Zmax:
             MOTION[self.Zp] = self.Zmax
-            self.Report_glitch('Error de rotación, el tobillo no se mueve en esta dirección', frame)
+            self.Report_glitch('Error de rotacion, el tobillo no rota: '
+                               + str(Zeuler) + ' grados. Cambiando Z a '+str(self.Zmax), frame)
 
         #aquí probamos límites en X
         if Xeluer < self.Xmin:
             MOTION[self.Xp] = self.Xmin
-            self.Report_glitch('Error de dorsiflexión', frame)
+            self.Report_glitch('Error de dorsiflexion. Cambiando ángulo a '
+                               +str(self.Xmin), frame)
         if Xeluer > self.Xmax:
             MOTION[self.Xp] = self.Xmax
-            self.Report_glitch('Error de flexión plantar', frame)
+            self.Report_glitch('Error de flexion plantar. Cambiando ángulo a '
+                               +str(self.Xmax), frame)
 
         #aquí probamos límites en Y
         if Yeuler < self.Ymin:
             MOTION[self.Yp] = self.Ymin
-            self.Report_glitch('Error de torsión, el tobillo no se mueve en esta dirección', frame)
+            self.Report_glitch('Error de torsion, el tobillo no se puede torser '
+                               +str(Yeuler)+' grados. Cambiando a ' + str(self.Ymin), frame)
         if Yeuler > self.Ymax:
             MOTION[self.Yp] = self.Ymax
-            self.Report_glitch('Error de torsión, el tobillo no se mueve en esta dirección', frame)
+            self.Report_glitch('Error de torsion, el tobillo no se puede torser '
+                               +str(Yeuler)+' grados. Cambiando a '+str(self.Ymax), frame)

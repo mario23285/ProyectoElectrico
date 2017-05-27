@@ -65,7 +65,7 @@ class Bone:
         """
         #creamos el archivo de reporte
         glitch = open('Glitch_Report', 'a')
-        errorString = 'Frame: ' + str(frame) + 'bone: '+ self.Name + ' | ' + errorMsg
+        errorString = 'Frame: ' + str(frame) + ' bone: '+ self.Name + ' '+ self.ID + ' | ' + errorMsg + '\n'
         #se escribe el string de error y se libera la memoria
         glitch.write(errorString)
         glitch.close()
