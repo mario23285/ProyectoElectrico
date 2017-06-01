@@ -44,10 +44,10 @@ class UpLeg(Bone):
         #de goniometría
         Bone.__init__(self,
                       Name='Cadera',
-                      Zmin=-20.000000,
-                      Zmax=40.000000,
-                      Xmin=-125.000000,
-                      Xmax=30.000000,
+                      Zmin=-60.000000,
+                      Zmax=20.000000,
+                      Xmin=-30.000000,
+                      Xmax=125.000000,
                       Ymin=-45.000000,
                       Ymax=50.000000)
 
