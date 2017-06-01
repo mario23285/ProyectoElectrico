@@ -32,6 +32,7 @@ from Foot import Foot
 from Leg import Leg
 from Arm import Arm
 from ForeArm import ForeArm
+from UpLeg import UpLeg
 
 #-------------------ESTRUCTURAS DE DATOS Y OBJETOS-------------------------
 #Creación de la jerarquía de Bones del MoCap
@@ -39,11 +40,14 @@ from ForeArm import ForeArm
 #dentro de la sección MOTION
 
 #miembros inferiores
-Leftfoot = Foot('Izquierdo', 138, 139, 140)
-Rightfoot = Foot('Derecho', 150, 151, 152)
+LeftUpLeg = UpLeg('Izquierda', 132, 133, 134)
+RightUpLeg = UpLeg('Derecha', 144, 145, 146)
 
 LeftLeg = Leg('Izquierda', 135, 136, 137)
 RightLeg = Leg('Derecha', 147, 148, 149)
+
+Leftfoot = Foot('Izquierdo', 138, 139, 140)
+Rightfoot = Foot('Derecho', 150, 151, 152)
 
 #tronco superior
 LeftArm = Arm('Izquiero', 21, 22, 23)
@@ -86,6 +90,8 @@ for line in BVHfile.readlines():
         Rightfoot.Goniometry_check(MOTION, frame)
         LeftLeg.Goniometry_check(MOTION, frame)
         RightLeg.Goniometry_check(MOTION, frame)
+        LeftUpLeg.Goniometry_check(MOTION, frame)
+        RightUpLeg.Goniometry_check(MOTION, frame)
 
         LeftArm.Goniometry_check(MOTION, frame)
         RightArm.Goniometry_check(MOTION, frame)
