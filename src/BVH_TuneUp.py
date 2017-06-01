@@ -65,7 +65,7 @@ Spine1 = Spine('lumbar-toracica', 9, 10, 11)
 
 #Archivos de entrada (BVHfile) y salida (outputBVH)
 BVHfile = open(sys.argv[1], 'r')
-outputBVH = open(sys.argv[2], 'w')
+outputBVH = open(sys.argv[2], 'w+')
 
 #Archivo de Excel para analizar error cuadrático medio
 ECM = open('ECM.csv', 'w+')
@@ -77,9 +77,10 @@ frame = 1
 #Inicio-----------------------------------------------
 print('Inicializando BVH TuneUp...\nCreando jerarquía de Bones...')
 
-
+#con el método isdigit() determinamos si el primer o segundo elemento de la línea
+#parseada es un dígito, si lo es, esta línea de seguro es de MOTION por tener números
 for line in BVHfile.readlines():
-    if line[0].isdigit():
+    if line[0].isdigit() or line[1].isdigit():
 
         #Aquí hay que separar la línea parseada y crear un arreglo de MOTION válido
         line = line.split('    ')
@@ -105,6 +106,7 @@ for line in BVHfile.readlines():
         RightForeArm.Goniometry_check(MOTION, frame)
         LeftHand.Goniometry_check(MOTION, frame)
         RightHand.Goniometry_check(MOTION, frame)
+        #Spine1.Goniometry_check(MOTION, frame)
 
         #escriba el vector de MOTION al ECM.csv para validación de datos
         ecm_csv.writerow(MOTION)

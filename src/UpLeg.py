@@ -45,11 +45,11 @@ class UpLeg(Bone):
         Bone.__init__(self,
                       Name='Cadera',
                       Zmin=-60.000000,
-                      Zmax=50.000000,
-                      Xmin=-30.000000,
-                      Xmax=125.000000,
-                      Ymin=-40.000000,
-                      Ymax=40.000000)
+                      Zmax=60.000000,
+                      Xmin=-35.000000,
+                      Xmax=165.000000,
+                      Ymin=-50.000000,
+                      Ymax=50.000000)
 
     def Goniometry_check(self, MOTION, frame):
         """
