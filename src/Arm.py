@@ -44,10 +44,10 @@ class Arm(Bone):
         #de goniometría
         Bone.__init__(self,
                       Name='Brazo',
-                      Zmin=-45.000000,
-                      Zmax=135.000000,
-                      Xmin=-90.000000,
-                      Xmax=90.000000,
+                      Zmin=-90.000000,
+                      Zmax=90.000000,
+                      Xmin=-45.000000,
+                      Xmax=135.000000,
                       Ymin=-90.000000,
                       Ymax=90.000000)
 
