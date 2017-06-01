@@ -33,6 +33,8 @@ from Leg import Leg
 from Arm import Arm
 from ForeArm import ForeArm
 from UpLeg import UpLeg
+from Wrist import Wrist
+from Spine import Spine
 
 #-------------------ESTRUCTURAS DE DATOS Y OBJETOS-------------------------
 #Creación de la jerarquía de Bones del MoCap
@@ -54,6 +56,10 @@ LeftArm = Arm('Izquiero', 21, 22, 23)
 RightArm = Arm('Derecho', 78, 79, 80)
 LeftForeArm = ForeArm('Izquierdo', 24, 25, 26)
 RightForeArm = ForeArm('Derecho', 81, 82, 83)
+LeftHand = Wrist('Izquierda', 27, 28, 29)
+RightHand = Wrist('Derecha', 84, 85, 86)
+
+Spine1 = Spine('lumbar-toracica', 9, 10, 11)
 
 #-------------------FIN DE ESTRUCTURAS DE DATOS Y OBJETOS------------------
 
@@ -97,6 +103,8 @@ for line in BVHfile.readlines():
         RightArm.Goniometry_check(MOTION, frame)
         LeftForeArm.Goniometry_check(MOTION, frame)
         RightForeArm.Goniometry_check(MOTION, frame)
+        LeftHand.Goniometry_check(MOTION, frame)
+        RightHand.Goniometry_check(MOTION, frame)
 
         #escriba el vector de MOTION al ECM.csv para validación de datos
         ecm_csv.writerow(MOTION)

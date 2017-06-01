@@ -49,7 +49,7 @@ class ForeArm(Bone):
                       Xmin=-90.000000,
                       Xmax=90.000000,
                       Ymin=-10.000000,
-                      Ymax=145.000000)
+                      Ymax=140.000000)
 
     def Goniometry_check(self, MOTION, frame):
         """

@@ -8,21 +8,21 @@ A41267
 Programa: BVH_TuneUp
 -------------------------------------------------------------------------------
 
-archivo: UpLeg.py
+archivo: Spine.py
 descripción:
-Este archivo contiene la clase UpLeg, la cual se utiliza para implementar las
-caderas. Los estudios de goniometría para este hueso
+Este archivo contiene la clase Spine, la cual se utiliza para implementar la
+columna vertebral (sección lumbar-torácica). Los estudios de goniometría para este hueso
 se basan en los siguientes límites de los ángulos de Euler:
-Z aducción + y abducción -
-X Flexión + y Extensión -
-Y rotación externa + y rotación interna -
+Z flexión lateral derecha + e izquierda -
+X flexión + y extensión -
+Y rotación izquierda + y derecha -
 """
 from Bone import Bone
 
-class UpLeg(Bone):
+class Spine(Bone):
     """
-    Esta subclase implementa el estudio de goniometría para las caderas en
-    el esqueleto del BVH. La jerarquía los llama "UpLeg".
+    Esta subclase implementa el estudio de goniometría para las muñecas en
+    el esqueleto del BVH. La jerarquía los llama "Hand".
     """
     def __init__(self, ID=' ', Zp=0, Xp=0, Yp=0):
         """
@@ -43,13 +43,13 @@ class UpLeg(Bone):
         #se llama al constructor de la super clase para acceder a todos los atributos
         #de goniometría
         Bone.__init__(self,
-                      Name='Cadera',
-                      Zmin=-60.000000,
-                      Zmax=50.000000,
-                      Xmin=-30.000000,
-                      Xmax=125.000000,
-                      Ymin=-40.000000,
-                      Ymax=40.000000)
+                      Name='Espina',
+                      Zmin=-25000000,
+                      Zmax=25.000000,
+                      Xmin=-25.000000,
+                      Xmax=45.000000,
+                      Ymin=-45.000000,
+                      Ymax=45.000000)
 
     def Goniometry_check(self, MOTION, frame):
         """
@@ -77,18 +77,18 @@ class UpLeg(Bone):
         if Zeuler < self.Zmin:
             MOTION[self.Zp] = self.Zmin
             glitch = True
-            ErrorMsg += 'abduccion | '
+            ErrorMsg += 'flexion lateral | '
 
         if Zeuler > self.Zmax:
             MOTION[self.Zp] = self.Zmax
             glitch = True
-            ErrorMsg += 'aduccion | '
+            ErrorMsg += 'flexion lateral | '
 
         #aquí probamos límites en X
         if Xeluer < self.Xmin:
             MOTION[self.Xp] = self.Xmin
             glitch = True
-            ErrorMsg += 'extension | '
+            ErrorMsg += 'hiperextension | '
         if Xeluer > self.Xmax:
             MOTION[self.Xp] = self.Xmax
             glitch = True
@@ -98,11 +98,11 @@ class UpLeg(Bone):
         if Yeuler < self.Ymin:
             MOTION[self.Yp] = self.Ymin
             glitch = True
-            ErrorMsg += 'rotacion interna | '
+            ErrorMsg += 'rotacion excesiva a la derecha | '
         if Yeuler > self.Ymax:
             MOTION[self.Yp] = self.Ymax
             glitch = True
-            ErrorMsg += 'rotacion externa | '
+            ErrorMsg += 'rotacion excesiva a la izquierda | '
 
         if glitch:
             self.Report_glitch(ErrorMsg, frame)
