@@ -8,21 +8,21 @@ A41267
 Programa: BVH_TuneUp
 -------------------------------------------------------------------------------
 
-archivo: Leg.py
+archivo: ForeArm.py
 descripción:
-Este archivo contiene la clase Leg, la cual se utiliza para implementar la
-rodilla izquierda y la derecha. Los estudios de goniometría para este hueso
+Este archivo contiene la clase ForeArm, la cual se utiliza para implementar el
+codo izquierdo y el derecho. Los estudios de goniometría para este hueso
 se basan en los siguientes límites de los ángulos de Euler:
-Z torsión no válida
-X Flexión y extensión
-Y rotación no válida
+Z no hay movimiento rotatorio en el codo
+X pronación (+) y supinación (-)
+Y flexión (+) y extensión (-)
 """
 from Bone import Bone
 
-class Leg(Bone):
+class ForeArm(Bone):
     """
-    Esta subclase implementa el estudio de goniometría para las rodillas en
-    el esqueleto del BVH. La jerarquía los llama "Leg".
+    Esta subclase implementa el estudio de goniometría para los brazos en
+    el esqueleto del BVH. La jerarquía los llama "Arm".
     """
     def __init__(self, ID=' ', Zp=0, Xp=0, Yp=0):
         """
@@ -43,13 +43,13 @@ class Leg(Bone):
         #se llama al constructor de la super clase para acceder a todos los atributos
         #de goniometría
         Bone.__init__(self,
-                      Name='Rodilla',
-                      Zmin=-0.200000,
-                      Zmax=0.200000,
-                      Xmin=0.000000,
-                      Xmax=150.000000,
-                      Ymin=-1.000000,
-                      Ymax=1.000000)
+                      Name='Codo',
+                      Zmin=0.000000,
+                      Zmax=0.000000,
+                      Xmin=-90.000000,
+                      Xmax=90.000000,
+                      Ymin=-10.000000,
+                      Ymax=145.000000)
 
     def Goniometry_check(self, MOTION, frame):
         """
@@ -77,32 +77,32 @@ class Leg(Bone):
         if Zeuler < self.Zmin:
             MOTION[self.Zp] = self.Zmin
             glitch = True
-            ErrorMsg += 'torsión | '
+            ErrorMsg += 'Movimiento no valido en el eje z | '
 
         if Zeuler > self.Zmax:
             MOTION[self.Zp] = self.Zmax
             glitch = True
-            ErrorMsg += 'torsión | '
+            ErrorMsg += 'Movimiento no valido en el eje z | '
 
         #aquí probamos límites en X
         if Xeluer < self.Xmin:
             MOTION[self.Xp] = self.Xmin
             glitch = True
-            ErrorMsg += 'extension | '
+            ErrorMsg += 'supinacion | '
         if Xeluer > self.Xmax:
             MOTION[self.Xp] = self.Xmax
             glitch = True
-            ErrorMsg += 'flexion | '
+            ErrorMsg += 'pronacion| '
 
         #aquí probamos límites en Y
         if Yeuler < self.Ymin:
             MOTION[self.Yp] = self.Ymin
             glitch = True
-            ErrorMsg += 'rotacion interna | '
+            ErrorMsg += 'extension | '
         if Yeuler > self.Ymax:
             MOTION[self.Yp] = self.Ymax
             glitch = True
-            ErrorMsg += 'rotacion externa | '
+            ErrorMsg += 'flexion | '
 
         if glitch:
             self.Report_glitch(ErrorMsg, frame)
