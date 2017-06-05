@@ -71,38 +71,89 @@ class UpLeg(Bone):
         Xeluer = MOTION[self.Xp]
         Yeuler = MOTION[self.Yp]
         glitch = False
+        #Exempt es una variable que se activa cuando detecta problemas de rotacion
+        #de ejes Z y Y en las rodillas
+        Exempt = False   
         ErrorMsg = ' existen glitches de '
 
-        #probamos límites en Z
-        if Zeuler < self.Zmin:
-            MOTION[self.Zp] = self.Zmin
-            glitch = True
-            ErrorMsg += 'abduccion | '
+        if Yeuler > 60.0 or Yeuler < -60.0:
+            Exempt = True
+        if Zeuler > 60.0 or Zeuler < -60.0:
+            Exempt = True
 
-        if Zeuler > self.Zmax:
-            MOTION[self.Zp] = self.Zmax
-            glitch = True
-            ErrorMsg += 'aduccion | '
 
-        #aquí probamos límites en X
-        if Xeluer < self.Xmin:
-            MOTION[self.Xp] = self.Xmin
-            glitch = True
-            ErrorMsg += 'extension | '
-        if Xeluer > self.Xmax:
-            MOTION[self.Xp] = self.Xmax
-            glitch = True
-            ErrorMsg += 'flexion | '
+        if Exempt:
+            #Existen dos pruebas goniométricas distintas de acuerdo al nivel de flexión de las
+            #caderas.  En el caso de que las caderas tengan un ángulo de abducción mayor a 60º o
+            #exista una rotacion de los eje Z y Y, debemos incrementar los límites de movilidad.
+            #en Z y Y. Esto debido al comportamiento de los huesos en el BVH, los cuales rotan
+            #los ejes Y y Z para representar movimientos de un esqueleto agachado.
 
-        #aquí probamos límites en Y
-        if Yeuler < self.Ymin:
-            MOTION[self.Yp] = self.Ymin
-            glitch = True
-            ErrorMsg += 'rotacion interna | '
-        if Yeuler > self.Ymax:
-            MOTION[self.Yp] = self.Ymax
-            glitch = True
-            ErrorMsg += 'rotacion externa | '
+            #Esto ocurre debido a la pérdida de orientación del hueso,por parte de las cámaras
+            #en los ejes Z y Y.
+
+            #probamos límites nuevos en Z
+            if Zeuler < -160.000000:
+                MOTION[self.Zp] = -150.000000
+                glitch = True
+                ErrorMsg += 'pérdida de orientación de los sensores en Z- | '
+
+            if Zeuler > 160.000000:
+                MOTION[self.Zp] = 150.000000
+                glitch = True
+                ErrorMsg += 'pérdida de orientación de los sensores en Z+ | '
+
+            #aquí probamos los mismos límites en X
+            if Xeluer < self.Xmin:
+                MOTION[self.Xp] = self.Xmin
+                glitch = True
+                ErrorMsg += 'extension | '
+            if Xeluer > self.Xmax:
+                MOTION[self.Xp] = self.Xmax
+                glitch = True
+                ErrorMsg += 'flexion | '
+
+            #aquí probamos nuevos límites en Y
+            if Yeuler < -105.000000:
+                MOTION[self.Yp] = -105.000000
+                glitch = True
+                ErrorMsg += 'pérdida de orientación de los sensores en Y- | '
+            if Yeuler > 105.000000:
+                MOTION[self.Yp] = 105.000000
+                glitch = True
+                ErrorMsg += 'pérdida de orientación de los sensores en Y+ | '
+
+        else:
+            #probamos límites en Z
+            if Zeuler < self.Zmin:
+                MOTION[self.Zp] = self.Zmin
+                glitch = True
+                ErrorMsg += 'abduccion | '
+
+            if Zeuler > self.Zmax:
+                MOTION[self.Zp] = self.Zmax
+                glitch = True
+                ErrorMsg += 'aduccion | '
+
+            #aquí probamos límites en X
+            if Xeluer < self.Xmin:
+                MOTION[self.Xp] = self.Xmin
+                glitch = True
+                ErrorMsg += 'extension | '
+            if Xeluer > self.Xmax:
+                MOTION[self.Xp] = self.Xmax
+                glitch = True
+                ErrorMsg += 'flexion | '
+
+            #aquí probamos límites en Y
+            if Yeuler < self.Ymin:
+                MOTION[self.Yp] = self.Ymin
+                glitch = True
+                ErrorMsg += 'rotacion interna | '
+            if Yeuler > self.Ymax:
+                MOTION[self.Yp] = self.Ymax
+                glitch = True
+                ErrorMsg += 'rotacion externa | '
 
         if glitch:
             self.Report_glitch(ErrorMsg, frame)

@@ -60,6 +60,7 @@ LeftHand = Wrist('Izquierda', 27, 28, 29)
 RightHand = Wrist('Derecha', 84, 85, 86)
 
 Spine1 = Spine('lumbar-toracica', 9, 10, 11)
+Neck = Spine('Cervical', 12, 13, 14)
 
 #-------------------FIN DE ESTRUCTURAS DE DATOS Y OBJETOS------------------
 
@@ -100,13 +101,14 @@ for line in BVHfile.readlines():
         LeftUpLeg.Goniometry_check(MOTION, frame)
         RightUpLeg.Goniometry_check(MOTION, frame)
 
+        Neck.Goniometry_check(MOTION, frame)
         LeftArm.Goniometry_check(MOTION, frame)
         RightArm.Goniometry_check(MOTION, frame)
         LeftForeArm.Goniometry_check(MOTION, frame)
         RightForeArm.Goniometry_check(MOTION, frame)
         LeftHand.Goniometry_check(MOTION, frame)
         RightHand.Goniometry_check(MOTION, frame)
-        #Spine1.Goniometry_check(MOTION, frame)
+        Spine1.Goniometry_check(MOTION, frame)
 
         #escriba el vector de MOTION al ECM.csv para validación de datos
         ecm_csv.writerow(MOTION)
