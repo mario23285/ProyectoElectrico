@@ -72,6 +72,13 @@ for c, m in zip(BVH_corregido, BVH_manual):
         #Si existe un arreglo de MOTION en esta línea, sacarle el error cuadráticos medio
         #en este frame
         for i in range(len(MANUAL)):
+            #cambiar ángulos excesivamente grandes por sus equivalentes < 360º
+            if MANUAL[i] > 180.000000:
+                MANUAL[i] = (360-MANUAL[i])*(-1)
+
+            if MANUAL[i] < -180.000000:
+                MANUAL[i] = MANUAL[i]+360
+
             MSE[1] += ((CORREGIDO[i]-MANUAL[i])*(CORREGIDO[i]-MANUAL[i]))*(1/len(MANUAL))
 
         #guardar vector de error cuadrático medio en el CSV
