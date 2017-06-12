@@ -7,9 +7,9 @@ A41267
 I-2017
 
 
-#Introducción
+# Introducción
 
-#Programa y modo de empleo
+# Programa y modo de empleo
 El programa implementa un algoritmo de corrección de glitches de MoCap, basado
 en estudios de goniometría y fisiología articular.  Mediante dichos estudios, el script
 es capaz de entender los movimientos de un ser humano y determinar si un archivo BVH

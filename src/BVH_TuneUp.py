@@ -26,6 +26,7 @@ https://github.com/mario23285/ProyectoElectrico.git
 #módulos de sistema
 import sys
 import csv
+import re
 
 #módulos de la jerarquía de huesos
 from Foot import Foot
@@ -84,7 +85,7 @@ for line in BVHfile.readlines():
     if line[0].isdigit() or line[1].isdigit():
 
         #Aquí hay que separar la línea parseada y crear un arreglo de MOTION válido
-        line = line.split('    ')
+        line = re.split('\s+|\n', line)
         #eliminar el ultimo elemento de line '\n' y convertir a float todo
         line.pop()
         MOTION = [float(nums) for nums in line]
