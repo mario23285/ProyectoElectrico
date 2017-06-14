@@ -77,7 +77,7 @@ class Leg(Bone):
         ErrorMsg = ' existen glitches de '
 
         #Variables para probar si hubo rotación de ejes y el esqueleto está agachado
-        rodilla_flex =  Xeluer > 27.0 or Xeluer < -35.0
+        rodilla_flex =  Xeluer > 13.0 or Xeluer < -15.0
         y_rot = Yeuler > 20.0 or Yeuler < -20.0
         z_rot = Zeuler > 40.0 or Zeuler < -40.0
 
@@ -98,32 +98,32 @@ class Leg(Bone):
 
             #probamos límites nuevos en Z
             if Zeuler < -160.000000:
-                MOTION[self.Zp] = -160.000000
+                #MOTION[self.Zp] no se le aplica restricción en Z
                 glitch = True
                 ErrorMsg += 'pérdida de orientación de los sensores en Z- | '
 
             if Zeuler > 160.000000:
-                MOTION[self.Zp] = 160.000000
+                #MOTION[self.Zp] no se le aplica restricción en Z
                 glitch = True
                 ErrorMsg += 'pérdida de orientación de los sensores en Z+ | '
 
             #aquí probamos nuevos límites en X
             if Xeluer < -150.000000:
-                MOTION[self.Xp] = -150.000000
+                #MOTION[self.Xp] no se le aplica restricción en X
                 glitch = True
                 ErrorMsg += 'pérdida de orientación de los sensores en X- | '
             if Xeluer > 150.000000:
-                MOTION[self.Xp] = 150.000000
+                #MOTION[self.Xp] no se le aplica restricción en X
                 glitch = True
                 ErrorMsg += 'pérdida de orientación de los sensores en X+ | '
 
             #aquí probamos nuevos límites en Y
             if Yeuler < -105.000000:
-                MOTION[self.Yp] = -105.000000
+                #MOTION[self.Yp] no se le aplica restricción en Y
                 glitch = True
                 ErrorMsg += 'pérdida de orientación de los sensores en Y- | '
             if Yeuler > 105.000000:
-                MOTION[self.Yp] = 105.000000
+                #MOTION[self.Yp] no se le aplica restricción en Y
                 glitch = True
                 ErrorMsg += 'pérdida de orientación de los sensores en Y+ | '
 

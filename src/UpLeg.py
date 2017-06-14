@@ -94,32 +94,32 @@ class UpLeg(Bone):
 
             #probamos límites nuevos en Z
             if Zeuler < -160.000000:
-                MOTION[self.Zp] = -150.000000
+                #MOTION[self.Zp] = -150.000000
                 glitch = True
                 ErrorMsg += 'pérdida de orientación de los sensores en Z- | '
 
             if Zeuler > 160.000000:
-                MOTION[self.Zp] = 150.000000
+                #MOTION[self.Zp] = 150.000000
                 glitch = True
                 ErrorMsg += 'pérdida de orientación de los sensores en Z+ | '
 
             #aquí probamos los mismos límites en X
-            if Xeluer < self.Xmin:
-                MOTION[self.Xp] = self.Xmin
+            if Xeluer < -45.000000:
+                #MOTION[self.Xp] = self.Xmin
                 glitch = True
-                ErrorMsg += 'extension | '
-            if Xeluer > self.Xmax:
-                MOTION[self.Xp] = self.Xmax
+                ErrorMsg += 'pérdida de orientación de los sensores en X-'
+            if Xeluer > 180.000000:
+                #MOTION[self.Xp] = self.Xmax
                 glitch = True
-                ErrorMsg += 'flexion | '
+                ErrorMsg += 'pérdida de orientación de los sensores en X+'
 
             #aquí probamos nuevos límites en Y
             if Yeuler < -105.000000:
-                MOTION[self.Yp] = -105.000000
+                #MOTION[self.Yp] = -105.000000
                 glitch = True
                 ErrorMsg += 'pérdida de orientación de los sensores en Y- | '
             if Yeuler > 105.000000:
-                MOTION[self.Yp] = 105.000000
+                #MOTION[self.Yp] = 105.000000
                 glitch = True
                 ErrorMsg += 'pérdida de orientación de los sensores en Y+ | '
 

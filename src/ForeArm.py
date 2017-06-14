@@ -13,7 +13,7 @@ descripción:
 Este archivo contiene la clase ForeArm, la cual se utiliza para implementar el
 codo izquierdo y el derecho. Los estudios de goniometría para este hueso
 se basan en los siguientes límites de los ángulos de Euler:
-Z no hay movimiento rotatorio en el codo
+Z no hay movimiento en el codo
 X pronación (+) y supinación (-)
 Y flexión (+) y extensión (-)
 """

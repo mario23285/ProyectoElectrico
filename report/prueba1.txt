@@ -1,0 +1,25 @@
+----Versión simplificada de la salida del reporte de Glitches----
+    2017/06/12 22:10 >> Prueba 1: escena2.3_esqueleto7.bvh
+
+Frame: 1 bone: Rodilla Izquierda |  existen glitches de torsión | rotación interna | 
+Frame: 2 bone: Rodilla Izquierda |  existen glitches de torsión | rotación interna | 
+Frame: 3 bone: Rodilla Izquierda |  existen glitches de torsión | rotación interna | 
+Frame: 4 bone: Rodilla Izquierda |  existen glitches de torsión | rotación interna | 
+Frame: 5 bone: Rodilla Izquierda |  existen glitches de torsión | rotación interna | 
+Frame: 6 bone: Rodilla Izquierda |  existen glitches de torsión | rotación interna | 
+Frame: 7 bone: Rodilla Izquierda |  existen glitches de torsión | rotación interna | 
+Frame: 8 bone: Rodilla Izquierda |  existen glitches de torsión | rotación interna | 
+Frame: 9 bone: Rodilla Izquierda |  existen glitches de torsión | rotación interna | 
+Frame: 10 bone: Rodilla Izquierda |  existen glitches de torsión | rotación interna | 
+
+Frame: 10 bone: Rodilla Derecha |  existen glitches de torsión | rotación externa | 
+Frame: 11 bone: Rodilla Derecha |  existen glitches de torsión | rotación externa | 
+Frame: 12 bone: Rodilla Derecha |  existen glitches de torsión | rotación externa |  
+Frame: 13 bone: Rodilla Derecha |  existen glitches de torsión | rotación externa | 
+Frame: 14 bone: Rodilla Derecha |  existen glitches de torsión | rotación externa |  
+Frame: 15 bone: Rodilla Derecha |  existen glitches de torsión | rotación externa | 
+Frame: 16 bone: Rodilla Derecha |  existen glitches de torsión | rotación externa | 
+Frame: 17 bone: Rodilla Derecha |  existen glitches de torsión | rotación externa | 
+Frame: 18 bone: Rodilla Derecha |  existen glitches de torsión | rotación externa | 
+Frame: 19 bone: Rodilla Derecha |  existen glitches de torsión | rotación externa | 
+Frame: 20 bone: Rodilla Derecha |  existen glitches de torsión | rotación externa | 
