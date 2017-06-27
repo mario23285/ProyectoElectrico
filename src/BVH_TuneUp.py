@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 UNIVERSIDAD DE COSTA RICA                       Escuela de Ingeniería Eléctrica
 
@@ -53,7 +55,7 @@ Leftfoot = Foot('Izquierdo', 138, 139, 140)
 Rightfoot = Foot('Derecho', 150, 151, 152)
 
 #tronco superior
-LeftArm = Arm('Izquiero', 21, 22, 23)
+LeftArm = Arm('Izquierdo', 21, 22, 23)
 RightArm = Arm('Derecho', 78, 79, 80)
 LeftForeArm = ForeArm('Izquierdo', 24, 25, 26)
 RightForeArm = ForeArm('Derecho', 81, 82, 83)

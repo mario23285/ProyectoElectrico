@@ -20,9 +20,11 @@ El script se localiza en la carpeta /src y no requiere de instalación o depende
 Simplemente copie el archivo bvh dañado a la carpeta /src y ejecute la siguiente linea de comando
 en un PowerShell (Windows) [bash en Linux o Mac]
 
+
 \> python .\BVH_TuneUP.py <BVH_a_corregir> <Nombre del BVH de salida>
 
 Ejemplo:
     \src> python .\BVH_TuneUp.py .\escena2.2_esqueleto9.bvh .\escena_corregida.bvh
 
-Se generará a la salida un reporte de Glitches (Errores) y el BVH con la escena corregida
+
+Se generará a la salida un reporte de Glitches (Errores), un archivo ECM.csv (que es usado para análisis y debugging) y el BVH con la escena corregida.
