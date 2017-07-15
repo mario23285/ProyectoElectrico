@@ -13,8 +13,8 @@ descripción:
 Este archivo contiene la clase Arm, la cual se utiliza para implementar el
 brazo izquierdo y el derecho. Los estudios de goniometría para este hueso
 se basan en los siguientes límites de los ángulos de Euler:
-Z aducción(+) y abducción(-) horizontales
-X aducción(+) y abducción(-) plano frontal
+Z aducción(+) y abducción(-) plano frontal
+X aducción(+) y abducción(-) plano transversal
 Y rotación interna(+) y rotación externa(-)
 """
 from Bone import Bone
