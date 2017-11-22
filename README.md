@@ -4,7 +4,7 @@ IE0499 Proyecto Final de graduación | Universidad de Costa Rica
 Mario A. Castresana Avendaño
 A41267
 
-I-2017
+Pattern Recognition and Intelligent Systems Lab. | I-2017
 
 
 
@@ -13,7 +13,7 @@ I-2017
 El programa implementa un algoritmo de corrección de glitches de MoCap, basado
 en estudios de goniometría y fisiología articular.  Mediante dichos estudios, el script
 es capaz de entender los movimientos de un ser humano y determinar si un archivo BVH
-contiene errores de captura, los cuales se manifiestan como movimientos erráticos, quebaraduras
+contiene errores de captura, los cuales se manifiestan como movimientos erráticos, quebraduras
 de articulaciones o movimientos imposibles de ejecutar para un ser humano.
 
 El script se localiza en la carpeta /src y no requiere de instalación o dependencias de software.
